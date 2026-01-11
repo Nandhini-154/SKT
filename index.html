@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Kavin's Tailors - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" style="color:#FFF; font-weight:700; font-size:1.2rem;">Sri Kavin's Tailors</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="ladies.html">Ladies</a></li>
+                <li><a href="gents.html">Gents</a></li>
+                <li><a href="kids.html">Kids</a></li>
+                <li><a href="works.html">Our Works</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+
+    <div class="container">
+        <h1>Welcome to Sri Kavin's Tailors</h1>
+        <img src="Tailors.png" class="main-logo" alt="Sri Kavin Tailors Logo">
+        
+        <div class="intro">
+            <p>We are a premier tailoring service specializing in custom-made garments for ladies, gents, and kids. With years of experience and attention to detail, we bring your fashion dreams to life.</p>
+            <p>Browse through our collection of designs and get inspired for your next custom outfit!</p>
+            <div style="margin-top: 2rem;">
+                <a href="ladies.html" class="btn">Ladies Collection</a>
+                <a href="gents.html" class="btn">Gents Collection</a>
+                <a href="kids.html" class="btn">Kids Collection</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Our Services</h2>
+        
+            <div class="services-grid">
+                
+                <div class="service-card">
+                    <div class="icon-box">
+                        <span>👗</span>
+                    </div>
+                    <div class="caption">
+                        <h3>Ladies Wear</h3>
+                        <p>Blouses, Kurtis, Frocks & More</p>
+                    </div>
+                </div>
+        
+                <div class="service-card">
+                    <div class="icon-box">
+                        <span>👔</span>
+                    </div>
+                    <div class="caption">
+                        <h3>Gents Wear</h3>
+                        <p>Shirts, Pants & Formal Wear</p>
+                    </div>
+                </div>
+        
+                <div class="service-card">
+                    <div class="icon-box">
+                        <span>👶</span>
+                    </div>
+                    <div class="caption">
+                        <h3>Kids Wear</h3>
+                        <p>Frocks, Ethnic Wear & More</p>
+                    </div>
+                </div>
+        
+            </div>
+        </div>
+        
+
+    <footer>
+        <p>&copy; 2024 Sri Kavin's Tailors. All rights reserved.</p>
+        <p>Custom Tailoring Excellence Since Day One</p>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+    
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            // Animate hamburger
+            hamburger.classList.toggle('active');
+        });
+    </script>
+    
+</body>
+</html>

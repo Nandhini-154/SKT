@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kids Collection - Sri Kavin's Tailors</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+    <div class="nav-container">
+        <div class="logo"><a href="index.html">Sri Kavin's Tailors</a></div>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+        <ul id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="ladies.html">Ladies</a></li>
+            <li><a href="gents.html">Gents</a></li>
+            <li><a href="kids.html">Kids</a></li>
+            <li><a href="works.html">Our Works</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <h1>Kids Collection</h1>
+<p><i>*****The images displayed are reference designs used for stitching and belong to their respective owners. Only the works showcased in the 
+       <b> ‘Our Works’</b> section are original and customized creations by Sri Kavin’s Tailors.*** </i></p>
+
+    <div class="section">
+        <h2>Frocks</h2>
+        <div id="frock-gallery" class="gallery"></div>
+    </div>
+
+    <div class="section">
+        <h2>Ethnic Wear</h2>
+        <div id="ethnic-gallery" class="gallery"></div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Sri Kavin's Tailors. All rights reserved.</p>
+</footer>
+
+<script type="module">
+import { db } from "./firebase-init.js";
+import { collection, onSnapshot } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
+
+const sections = {
+    'frock-gallery': 'frock-kids',
+    'ethnic-gallery': 'ethnic-wear-kids'
+};
+
+function renderGallery(galleryId, designs, category) {
+    const gallery = document.getElementById(galleryId);
+    gallery.innerHTML = '';
+    designs.filter(d => d.category === category).forEach(d => {
+        const item = document.createElement('div');
+        item.className = 'gallery-item';
+        item.innerHTML = `
+            <a href="${d.url}" target="_blank">
+                <img src="${d.url}" alt="${d.name}">
+            </a>
+            <div class="caption">
+                <span>${d.name}</span>
+                <a href="https://wa.me/919488382664?text=Hi,%20I'm%20interested%20in design ${d.name} - ${category.replace(/-/g,' ')} from Sri Kavin's Tailors" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:25px;height:25px;" alt="Share">
+                </a>
+            </div>
+        `;
+        gallery.appendChild(item);
+    });
+}
+
+const designsCol = collection(db, "designs");
+onSnapshot(designsCol, snapshot => {
+    const designs = [];
+    snapshot.forEach(doc => designs.push(doc.data()));
+    for (const [id, category] of Object.entries(sections)) {
+        renderGallery(id, designs, category);
+    }
+});
+
+// Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+    hamburger.classList.toggle("active");
+});
+</script>
+</body>
+</html>

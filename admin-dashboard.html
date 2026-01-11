@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel - Sri Kavin's Tailors</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+
+<nav>
+    <div class="logo">
+        <a href="admin-dashboard.html">Admin Dashboard</a>
+    </div>
+    <ul id="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="ladies.html">Ladies</a></li>
+        <li><a href="gents.html">Gents</a></li>
+        <li><a href="kids.html">Kids</a></li>
+        <li><a href="works.html">Our Works</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><button id="logoutBtn" class="btn">Logout</button></li>
+    </ul>
+</nav>
+
+<div class="admin-container">
+    <h1>Admin Panel - Add Design</h1>
+    <form id="designForm">
+        <input type="text" id="designName" placeholder="Design ID e.g. BHD01" required>
+        <select id="categorySelect" required>
+            <option value="">Select Category</option>
+            <option value="blouse-design">Blouse Design</option>
+            <option value="blouse-hand-design">Blouse Hand Design</option>
+            <option value="kurti-design">Kurti Design</option>
+            <option value="kurti-hand-design">Kurti Hand Design</option>
+            <option value="frock-kids">Frock - Kids</option>
+            <option value="ethnic-wear-kids">Ethnic Wear - Kids</option>
+            <option value="shirt-men">Shirt - Men</option>
+        </select>
+        <input type="text" id="imageUrl" placeholder="Image URL" required>
+        <button type="submit">Add Design</button>
+    </form>
+
+    <h2>All Designs</h2>
+    <div id="allDesigns"></div>
+</div> 
+
+<script type="module" src="firebase-init.js"></script>
+<script type="module" src="admin-dashboard.js"></script>
+
+</body>
+</html>
